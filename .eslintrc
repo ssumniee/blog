@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "parser": "@typescript-eslint/parser",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "vue",
+    "simple-import-sort",
+    "prettier"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:nuxt/recommended",
+    "plugin:vue/recommended",
+    "@nuxtjs/eslint-config-typescript", // Nuxt.js 프로젝트에서 TypeScript와 함께 사용되는 ESLint 규칙
+    "prettier"
+  ],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-dupe-class-members": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^\\u0000"],
+          ["^vue"], // vue
+          ["^@?\\w"], // node_modules
+          ["^"], // absolute imports
+          ["^\\."], // relative imports
+          ["^.+\\.s?css$"] // styles
+        ]
+      }
+    ],
+    "prettier/prettier": "error",
+    "simple-import-sort/exports": "error",
+    "vue/multi-word-component-names": "off"
+  }
+}
